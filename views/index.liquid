@@ -7,31 +7,63 @@
   {% endfor %}
 </ul> {% endcomment %}
 
-<select name="emojis" class="emoji-select">
-  <option value="">-- Choose an emoji --</option>
-  <option value="smile">🧌</option>
-  <option value="chickenwing">🍗</option>
-  <option value="heart">❤️</option>
-  <option value="soldier">🫡</option>
-  <option value="money">🤑</option>
-  <option value="sideye">👀</option>
-  <option value="monkey">🦧</option>
-  <option value="mousetrap">🪤</option>
-  <option value="bubbles">🫧</option>
-  <option value="trol">🧌</option>
-  <option value="slay">💅🏻</option>
-</select>
+  <ul class="emoji-list">
+    <li>
+      <a href="/🧌">🧌</a>
+    </li>
+   
+    <li>
+      <a href="/🍗">🍗</a>
+    </li>
+
+    <li>
+      <a href="/❤️">❤️</a>
+    </li>
+
+    <li>
+      <a href="/🫡">🫡</a>
+    </li>
+
+    <li>
+      <a href="/🤑">🤑</a>
+    </li>
+
+    <li>
+      <a href="/👀">👀</a>
+    </li>
+
+    <li>
+      <a href="/🦧">🦧</a>
+    </li>
+
+    <li>
+      <a href="/🪤">🪤</a>
+    </li>
+
+    <li>
+      <a href="/🫧">🫧</a>
+    </li>
+
+    <li>
+      <a href="/💅🏻">💅🏻</a>
+    </li>
+  </ul>
 
 <section>
-  <ul>
+  <ul class="squad-members">
     <li>
         {% for person in persons %}
       <figure>
-        <img src="https://fdnd.directus.app/assets/{{ person.mugshot }}?width=500" alt="Profile picture">
+        <a href="/person_info">
+          <img src="https://fdnd.directus.app/assets/{{ person.mugshot }}?width=200" alt="Profile picture">
+            <figcaption> {{ person.name }} 
+              <img src="/assets/arrow-right.svg" alt="arrow to the right">
+            </figcaption>
+        </a>
       </figure>
         {% endfor %}
-
     </li>
   </ul>
 </section>
+
 {% render 'partials/foot.liquid', squads: squads %} 
