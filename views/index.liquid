@@ -1,10 +1,37 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
 
-<h2>Students</h2>
+ {% comment %} <h2>Students</h2>
 <ul>
   {% for person in persons %}
     <li><a href="/student/{{ person.id }}">{{ person.name }}</a></li>
   {% endfor %}
-</ul>
+</ul> {% endcomment %}
 
-{% render 'partials/foot.liquid', squads: squads %}
+<select name="emojis" class="emoji-select">
+  <option value="">-- Choose an emoji --</option>
+  <option value="smile">🧌</option>
+  <option value="chickenwing">🍗</option>
+  <option value="heart">❤️</option>
+  <option value="soldier">🫡</option>
+  <option value="money">🤑</option>
+  <option value="sideye">👀</option>
+  <option value="monkey">🦧</option>
+  <option value="mousetrap">🪤</option>
+  <option value="bubbles">🫧</option>
+  <option value="trol">🧌</option>
+  <option value="slay">💅🏻</option>
+</select>
+
+<section>
+  <ul>
+    <li>
+        {% for person in persons %}
+      <figure>
+        <img src="https://fdnd.directus.app/assets/{{ person.mugshot }}?width=500" alt="Profile picture">
+      </figure>
+        {% endfor %}
+
+    </li>
+  </ul>
+</section>
+{% render 'partials/foot.liquid', squads: squads %} 
