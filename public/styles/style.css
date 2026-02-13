@@ -36,7 +36,7 @@ a {
     gap: .4em;
 
     li:hover {
-        scale: 1.8;
+        scale: 1.6;
         transition: .3s ease;
     }
 }

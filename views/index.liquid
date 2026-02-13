@@ -54,7 +54,7 @@
     <li>
         {% for person in persons %}
       <figure>
-        <a href="/person_info">
+        <a href="#">
           <img src="https://fdnd.directus.app/assets/{{ person.mugshot }}?width=200" alt="Profile picture">
             <figcaption> 
               {{ person.name }} 
@@ -65,5 +65,7 @@
     </li>
   </ul>
 </section>
+
+<script src="./scripts/script.js"></script>
 
 {% render 'partials/foot.liquid', squads: squads %} 
