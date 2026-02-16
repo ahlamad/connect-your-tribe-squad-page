@@ -98,3 +98,13 @@ a {
         }
     }
 }
+
+input[type="text"] {
+    width: 60%;
+    transition: 0.5s;
+    padding: 6px;
+
+    &:focus {
+        border: 5px solid #FF2E88;
+    }
+}

@@ -112,13 +112,6 @@ app.get('/', async function (request, response) {
 //   response.render('person.liquid', {persons: personResponseJSON.data, squads: squadResponseJSON.data})
 // })
 
-// Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
-app.post('/', async function (request, response) {
-  // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
-  // Er is nog geen afhandeling van POST, redirect naar GET op /
-  response.redirect(303, '/')
-})
-
 
 // Maak een GET route voor een detailpagina met een route parameter, id
 // Zie de documentatie van Express voor meer info: https://expressjs.com/en/guide/routing.html#route-parameters
@@ -136,6 +129,7 @@ app.get('/student/:id', async function (request, response) {
 // VIBE EMOJI ROUTE
 // https://fdnd.directus.app/items/person/?filter[vibe_emoji]=%F0%9F%A6%A7
 // filter[vibe_emoji]=' + request.params.id
+/*
 app.get('/:id', async function (request, response) {
   const params = {
     'sort': 'name',
@@ -153,6 +147,23 @@ app.get('/:id', async function (request, response) {
   response.render('index.liquid', {persons: personResponseJSON.data, squads: squadResponseJSON.data})
   
 })
+*/
+
+// Nieuwe messages array
+let messages = ["hoi"]
+
+app.get('/berichten', async function (req, res) {
+  res.render('messages.liquid', {messages: messages} )
+  
+})
+
+// Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
+app.post('/berichten', async function (request, response) {
+  // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
+messages.push(request.body.message)
+  response.redirect(303, '/berichten')
+})
+
 
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8000)

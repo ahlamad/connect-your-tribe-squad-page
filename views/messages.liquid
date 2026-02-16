@@ -1,0 +1,17 @@
+{% render 'partials/head.liquid', title: 'Squad page' %}
+
+
+<form action="/berichten" method="POST">
+<input type="text" name="message">
+<button type="submit">Send!</button>
+</form>
+
+{% for message in messages reversed %}
+    <ol>
+        <li>
+            {{ message | json }}
+        </li>
+    </ol>
+{% endfor %}
+
+{% render 'partials/foot.liquid', squads: squads %}
